@@ -1,6 +1,6 @@
 
 #  Ambari集成impala 
-
+####   author:高铭    time:2018-12-12 16:45:00
 1.  参照Github上的安装流程，[Github ambari-impala 插件](https://github.com/cas-bigdatalab/ambari-impala-service)
 2.  你将遇到如下问题,如图所示: 
     解决问题:
