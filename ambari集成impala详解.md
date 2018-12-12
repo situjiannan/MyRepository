@@ -5,6 +5,6 @@
 2.  你将遇到如下问题,如图所示: 
     解决问题:
    
-3.  同步/etc/hadoop/目录下的`core-site.xml` , `hdfs-site.xml` 和 /etc/hive2/目录下的hive-site.xml到 /etc/impala/conf/目录下，结果如图所示:
+3.  同步/etc/hadoop/目录下的`core-site.xml` , `hdfs-site.xml` 和 /etc/hive2/目录下的 `hive-site.xml` 到 /etc/impala/conf/目录下，结果如图所示:
 
    
