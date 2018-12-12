@@ -54,14 +54,19 @@
 ##  二.HUE配置修改,生成数据库表  
  修改hue.ini的配置文件，该配置文件可以使你的Hue集成进现有的集群中，它位于：/usr/lib/hue-4.2.0/desktop/conf/目录下,  
 你可以参考官网上的配置教程，[Hue官网安装配置教程](http://gethue.com/hadoop-hue-3-on-hdp-installation-tutorial/)，但是这里我将向你展示我的配置修改  
-1.  修改时间，修改hadoop，beeswax，impala，yarn,zookpeer,oozie 等等你希望的组件 ,详情请参考我的hue.ini或者官方文档，部分修改如图所示：
+1.  修改时间，修改hadoop，beeswax，impala，yarn,zookpeer,oozie 等等你希望的组件 ,详情请参考我的hue.ini或者官方文档，部分修改如图所示：  
+![遇到的bug](/hue/上海时间.png)  
+![图片](/hue/hadoop_hueini.png)  
+![图片](/hue/hive_hueini.png)  
+![图片](/hue/impala_hueini.png)  
+
 2.  进入/usr/local/hue/build/env/bin/目录，执行如下两条命令：
 *  `./hue syncdb` 此时询问你是否要创建一个超级用户的权限，请暂时不要，would you like to create one now ? 输入`no`
 *  `./hue migrate`   
 3.如果你在数据库发现了这些表，说明你安装成功了：   
-        
+        ![遇到的bug](/hue/数据库.png)
 ##  三.启动Hue，输入你的账户密码   
-
+![遇到的bug](/hue/Hue登录.png)
 ##  四.Ambari集成Github上的Hue插件   
 1.  插件的地址：[Github Hue 插件地址 ](https://github.com/EsharEditor/ambari-hue-service)  
 2.  执行如下命令： 
@@ -77,30 +82,12 @@
     
 5.  安装的过程中配置情况请参考[Hue官网安装配置教程](http://gethue.com/hadoop-hue-3-on-hdp-installation-tutorial/)，主要是在ambari的UI页面对关系型数据库进行配置  
     
-6.  安装的时候你可能遇到如下bug报错：    
+6.  安装的时候你可能遇到如下bug报错： 
+       ![图片](/hue/bug.png)   
+
         解决方法是修改hue-env的文件：找到hue_user，做如下修改:  
-        `<property>  
-              <name>hue_user</name>  
-              <value>hue</value>  
-              <display-name>Hue User</display-name>  
-              <property-type>USER</property-type>  
-              <description>hue user</description>  
-              <value-attributes>  
-                <type>user</type>  
-                <overridable>false</overridable>  
-                <user-groups>  
-                     <property>  
-                         <type>cluster-env</type>  
-                         <name>user_group</name>  
-                     </property>  
-                     <property>  
-                         <type>hue-env</type>  
-                         <name>hue_group</name>  
-                     </property>  
-                 </user-groups>  
-              </value-attributes>  
-              <on-ambari-upgrade add="true"/>  
-          </property> `
+       ![图片](/hue/hue_user.png)  
+
 ##  五.参考链接  
     以下都是我阅读过的CSDN上的一些安装文章，你觉得有需要，可以进行阅读：  
 *  [ambari集成hue 文章一](https://www.cnblogs.com/xupccc/p/9583656.html)
